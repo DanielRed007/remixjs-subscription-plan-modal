@@ -1,45 +1,40 @@
-# remixjs-subscription-plan-modal
+# Welcome to Remix!
 
-This is a RemixJS project created for building web applications with fun and efficiency in mind!
+- 📖 [Remix docs](https://remix.run/docs)
 
-## Getting Started
+## Development
 
-Follow these instructions to get the project up and running locally.
+Run the dev server:
 
-### Prerequisites
-
-Ensure you have the following installed:
-
-- **Node.js** (v14.17.0 or higher): [Download Node.js](https://nodejs.org/)
-- **npm** (comes with Node.js) or **Yarn** as your package manager
-
-### Installation
-
-1. **Clone the repository** or create a new Remix project.
-
-   If you are starting a new project, you can use the Remix command:
-
-   ```bash
-   npx create-remix@latest
-
-2. Install dependencies:
-
-Navigate to your project directory and install all the necessary dependencies using npm or yarn.
-
-Using npm:
-
-npm install
-
-Or, if you prefer yarn:
-
-yarn install
-
-3. Development
-To start the development server and begin working on your project, run:
-
+```shellscript
 npm run dev
+```
 
-Or with yarn:
+## Deployment
 
-yarn dev
+First, build your app for production:
 
+```sh
+npm run build
+```
+
+Then run the app in production mode:
+
+```sh
+npm start
+```
+
+Now you'll need to pick a host to deploy it to.
+
+### DIY
+
+If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
+
+Make sure to deploy the output of `npm run build`
+
+- `build/server`
+- `build/client`
+
+## Styling
+
+This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
