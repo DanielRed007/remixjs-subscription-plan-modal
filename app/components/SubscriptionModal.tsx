@@ -27,8 +27,8 @@ export const SubscriptionModal = ({ cards }: Props) => {
             className='w-full max-w-5xl rounded-xl bg-gray-900 p-6 duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0'
           >
             <div className='mt-1 flex justify-between'>
-              <DialogTitle as='h3' className='text-2xl font-medium text-white'>
-                Choose The Best Subscription Plan
+              <DialogTitle as='h3' className='text-4xl font-medium text-white'>
+                Choose Your Best Subscription Plan
               </DialogTitle>
 
               <button
@@ -39,7 +39,7 @@ export const SubscriptionModal = ({ cards }: Props) => {
               </button>
             </div>
 
-            <div className='mt-8 grid grid-cols-3 gap-2 min-h-[580px]'>
+            <div className='mt-8 grid grid-cols-3 gap-2 min-h-[650px]'>
               {cards.map((card, index) => (
                 <PlanBox key={index} card={card} />
               ))}
