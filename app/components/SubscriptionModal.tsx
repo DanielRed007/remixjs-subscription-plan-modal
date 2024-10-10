@@ -1,9 +1,10 @@
 import React from "react";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+
 import { PlanBox } from "./PlanBox";
 import { Card } from "~/models/interfaces/cards";
 import { useModal } from "../context/ModalContext";
+import { XMarkIcon } from "@heroicons/react/16/solid";
 
 interface Props {
   isOpen: boolean;
@@ -39,7 +40,7 @@ export const SubscriptionModal = ({ cards }: Props) => {
               </button>
             </div>
 
-            <div className='mt-8 grid grid-cols-3 gap-2 min-h-[650px]'>
+            <div className='mt-8 grid grid-cols-3 gap-2 min-h-[590px]'>
               {cards.map((card, index) => (
                 <PlanBox key={index} card={card} />
               ))}
