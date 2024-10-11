@@ -5,4 +5,6 @@ export interface Card {
   finalPrice: number;
   savedAmount: number;
   type: string;
+  buttonTitle: string;
+  buttonSubtitle: string;
 }
