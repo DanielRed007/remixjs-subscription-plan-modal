@@ -18,8 +18,8 @@ export const PlanBox = ({ card }: Props) => {
           {card.discountedPrice > 0 ? `$${card.discountedPrice}` : ``}
         </h3>
         <h3 className='text-5xl font-bold mt-1'>${card.finalPrice}</h3>
-        <h3 className='text-lg font-light mt-1'>
-          {card.savedAmount > 0 ? `save ${card.savedAmount}` : ``}
+        <h3 className='text-md font-light mt-1'>
+          {card.savedAmount > 0 ? `save $${card.savedAmount}` : ``}
         </h3>
       </div>
       <div className='absolute bottom-0 w-full h-fit flex flex-col justify-center items-center font-light'>
@@ -28,11 +28,9 @@ export const PlanBox = ({ card }: Props) => {
         </div>
 
         <Button className='rounded-md w-4/5 bg-purple-700 mt-0 py-1.5 px-3 text-sm/6 font-semibold text-white focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white'>
-          Get Free Plan
+          {card.buttonTitle}
         </Button>
-        <h3 className='text-sm font-light mt-1 mb-3'>
-          30-day money-back guarantee
-        </h3>
+        <h3 className='text-sm font-light mt-1 mb-3'>{card.buttonSubtitle}</h3>
       </div>
     </div>
   );
