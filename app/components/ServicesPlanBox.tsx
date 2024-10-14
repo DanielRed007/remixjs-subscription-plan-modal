@@ -1,5 +1,5 @@
 import React from "react";
-import { IconTextRow, RowProps } from "./IconTextRow";
+import { IconTextRow } from "./IconTextRow";
 import {
   CircleStackIcon,
   UserIcon,
@@ -11,11 +11,22 @@ import {
 } from "@heroicons/react/24/outline";
 
 interface ColumnProps {
-  plan: string;
+  plan: "free" | "unlimited" | "plus";
+}
+
+interface IconSymbol {
+  icon: React.ElementType;
+  text: string;
+}
+
+interface RowsProps {
+  free: IconSymbol[];
+  plus: IconSymbol[];
+  unlimited: IconSymbol[];
 }
 
 export const ColumnComponent: React.FC<ColumnProps> = ({ plan }) => {
-  const rows: any = {
+  const rows: RowsProps = {
     free: [
       { icon: CircleStackIcon, text: "1 GB storage" },
       { icon: UserIcon, text: "1 user" },
@@ -41,8 +52,8 @@ export const ColumnComponent: React.FC<ColumnProps> = ({ plan }) => {
 
   return (
     <div className='w-full flex flex-col p-4 rounded-md'>
-      {rows[plan].map((row: any, index: any) => (
-        <IconTextRow key={index} icon={row.icon} text={row.text} />
+      {rows[plan].map((row: IconSymbol, index: number) => (
+        <IconTextRow key={index} Icon={row.icon} text={row.text} />
       ))}
     </div>
   );

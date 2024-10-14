@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { ModalProvider, useModal } from "~/context/ModalContext";
+import { ModalProvider } from "~/context/ModalContext";
 import Index from "~/routes/_index"; // Importa tu componente a testear
 
 describe("Home Unit Tests", () => {

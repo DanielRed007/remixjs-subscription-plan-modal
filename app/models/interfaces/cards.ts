@@ -4,7 +4,7 @@ export interface Card {
   discountedPrice: number;
   finalPrice: number;
   savedAmount: number;
-  type: string;
+  type: "free" | "unlimited" | "plus";
   buttonTitle: string;
   buttonSubtitle: string;
 }

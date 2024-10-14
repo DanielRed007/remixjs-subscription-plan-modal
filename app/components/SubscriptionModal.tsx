@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const SubscriptionModal = ({ cards }: Props) => {
-  const { isOpen, openModal, closeModal } = useModal();
+  const { isOpen, closeModal } = useModal();
 
   return (
     <Dialog
