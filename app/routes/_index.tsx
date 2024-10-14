@@ -51,6 +51,7 @@ export default function Index() {
       <button
         onClick={openModal}
         className='px-4 py-2 text-white bg-purple-500 hover:bg-purple-600 rounded-md'
+        data-testid='modal-btn'
       >
         View Interlink Plans
       </button>
