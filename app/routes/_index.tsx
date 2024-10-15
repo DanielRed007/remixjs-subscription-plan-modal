@@ -1,7 +1,14 @@
-import type { MetaFunction } from "@remix-run/node";
+import {
+  json,
+  LoaderFunctionArgs,
+  type LoaderFunction,
+  type MetaFunction,
+} from "@remix-run/node";
 import { SubscriptionModal } from "~/components/SubscriptionModal";
 import { useModal } from "../context/ModalContext";
 import { Card } from "~/models/interfaces/cards";
+import { useLoaderData } from "@remix-run/react";
+import { loader as cardsLoader } from "./api/cards";
 
 export const meta: MetaFunction = () => {
   return [
@@ -10,41 +17,24 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const loader: LoaderFunction = async ({
+  request,
+  params,
+  context,
+}: LoaderFunctionArgs) => {
+  const cardsResponse = await cardsLoader({ request, params, context });
+
+  if (!cardsResponse || !(cardsResponse instanceof Response)) {
+    throw new Error("Failed to load cards");
+  }
+
+  return json(await cardsResponse.json());
+};
+
 export default function Index() {
   const { isOpen, openModal } = useModal();
 
-  const cards: Card[] = [
-    {
-      discount: 0,
-      plan: "Interlink Free",
-      discountedPrice: 0,
-      finalPrice: 0,
-      savedAmount: 0,
-      type: "free",
-      buttonTitle: "Get Interlink for Free",
-      buttonSubtitle: "No credit card required",
-    },
-    {
-      discount: 20,
-      plan: "Interlink Plus",
-      discountedPrice: 5.01,
-      finalPrice: 9.99,
-      savedAmount: 60.12,
-      type: "plus",
-      buttonTitle: "Get Interlink Plus",
-      buttonSubtitle: "30-day money-back guarantee",
-    },
-    {
-      discount: 35,
-      plan: "Interlink Unlimited",
-      discountedPrice: 7.44,
-      finalPrice: 14.99,
-      savedAmount: 89.28,
-      type: "unlimited",
-      buttonTitle: "Get Interlink Unlimited",
-      buttonSubtitle: "30-day money-back guarantee",
-    },
-  ];
+  const cards: Card[] = useLoaderData<Array<Card>>();
 
   return (
     <div className='w-full h-screen flex justify-center items-center bg-gray-800'>
